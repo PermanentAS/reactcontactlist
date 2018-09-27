@@ -1,0 +1,36 @@
+.search-input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ui.vertical.tabular.menu{
+    border: none;
+    
+}
+
+.ui.vertical.tabular.menu .item{
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.ui.vertical.tabular.menu .active.item{
+    background-color: rgb(75, 153, 255);
+    border: none;
+}
+
+.ui.vertical.tabular.menu .active.item .ui.header{
+    color: #fff;
+}
+
+.four.wide.column{
+    overflow-x: scroll;
+    height: 90vh;
+}
+
+.stretched.twelve.wide.column{
+    overflow: hidden;
+    height: 85vh;
+}
+
+.main-block{
+    display: inline-block;
+}

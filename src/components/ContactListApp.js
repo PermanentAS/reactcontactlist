@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import ContactList from './ContactList';
-import '../clients.json';
-const CLIENT_BASE = require('../clients.json');
 
+const CLIENT_BASE = require('../clients.json');
 
 class ContactListApp extends Component{
     constructor(props){

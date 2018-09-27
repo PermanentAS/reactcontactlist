@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import Contact from './Contact'
 import 'semantic-ui-css/semantic.min.css';
-import { Input, Item } from 'semantic-ui-react';
-import { Button } from 'semantic-ui-react';
+import { Input, Tab } from 'semantic-ui-react';
+import ListInfo from './ListInfo';
+import './ContactList.css'
+import Contact from './Contact';
+
 
 class ContactList extends Component{
     constructor(props){
@@ -30,24 +32,25 @@ class ContactList extends Component{
             }
         );
 
-        
-
-        console.log(this.state.filteredContacts);
+        const semanticTabs = filteredContacts.map((contact, index)=> {           
+            return  ({ 
+                        menuItem: { key: index, 
+                                    content: <Contact contact={contact} />,
+                                  },
+                        render: ()=> <Tab.Pane> <ListInfo contact={contact} /> </Tab.Pane>,
+                    });
+        });
 
         return(
-            <div>
+            <div className="">
                 <Input  placeholder='Search...' 
                         type="text"
                         value={this.state.search}
-                        onChange={this.updateSearch.bind(this)}   
-                />
-                <Item.Group divided>
-                    {filteredContacts.map((contact, index)=> {
-                        return <Contact key={index} contact={contact} />
-                    })}
-                </Item.Group>
+                        onChange={this.updateSearch.bind(this)} 
+                        className="search-input"  
+                />         
                 
-                
+                <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={semanticTabs}/>
             </div>
         );
     }
